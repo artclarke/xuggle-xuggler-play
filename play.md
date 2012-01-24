@@ -1,7 +1,5 @@
 This quickstart will get you going with [Play! Framework](http://playframework.org/) on the [Cedar](http://devcenter.heroku.com/articles/cedar) stack.
 
-Sample code is available on [github](https://github.com/heroku/devcenter-play) along with this document. Edits and enhancements are welcome. Just fork the repository, make your changes and send us a pull request.
-
 ## Prerequisites
 
 * Basic Java knowledge, including an installed version of the JVM.
@@ -61,7 +59,7 @@ You can run any Play! application on Heroku. If you don't already have one, you 
     ~ |  __/|_|\____|\__ (_)
     ~ |_|            |__/   
     ~
-    ~ play! 1.2.3, http://www.playframework.org
+    ~ play! 1.2.4, http://www.playframework.org
     ~
     ~ The new application will be created in /Users/jjoergensen/dev/tmp/helloworld
     ~ What is the application name? [helloworld] 
@@ -94,14 +92,20 @@ This creates a project called helloworld with a simple controller class `Applica
     
 ## Declare Dependencies
 
-Play dependencies are declared in `conf/dependencies.yml`. Here's an example `dependencies.yml` for the project we just created:
+<div class="callout" markdown="1">
+Previous versions of the Play! framework allowed module dependency declaration in application.conf. This functionality has been deprecated. dependencies.yml should now be used.
+</div>
+
+Play dependencies are declared in `conf/dependencies.yml`. The first dependency is the framework itself. When the app is generated it will depend on any version of the framework: `- play`. It's a best practice to include the optional framework version after this: `- play 1.2.4`. This is also how Heroku will know which version of the framework you want instead of using the default.
+
+Edit your `dependencies.yml` to look like this. Substitute `1.2.4` with the version of the framework you are using:
 
 ### dependencies.yml
 
     # Application dependencies
 
     require:
-        - play
+        - play 1.2.4
 
 Prevent build artifacts from going into revision control by creating this file:
 
@@ -118,22 +122,24 @@ Prevent build artifacts from going into revision control by creating this file:
     tmp/
     modules/
     
-## Declare Process Types With Foreman/Procfile
+## Test Locally
 
-To run your web process, you need to declare what command to use.  We'll use `Procfile` to declare how our web process type is run.
+Simply type `play run` at your terminal and your application will start.
+
+### Declare Process Types With Procfile
+
+<div class="callout" markdown="1">
+Note: you can use your Procfile locally with foreman, but it is not required. [Read more about foreman and procfiles](http://devcenter.heroku.com/articles/procfile).
+</div>
+
+Heroku uses a Procfile to run your process after your code is deployed and build. A Procfile specifies a list of commands, prefaced by their process type. `web` is a special process type that allows you to bind to a port.
 
 Here's an example `Procfile`:
 
     :::term
     web:    play run --http.port=$PORT $PLAY_OPTS
 
-The `PLAY_OPTS` variable is used to set options that change from one environment to another. Now that you have a `Procfile`, you can start your application with the Foreman gem:
-
-    :::term
-    $ gem install foreman
-    $ foreman start
-
-Your app will come up on port 5000.  Test that it's working with curl or a web browser, then Ctrl-C to exit.
+The `PLAY_OPTS` variable is used to set options that change from one environment to another.
 
 ## Store Your App in Git
 
@@ -227,5 +233,5 @@ Note that the web page rendered on Heroku is slightly different from what you sa
 
 ## Further Reading
 
-* [Building a Database-backed Play! application on Heroku/Cedar](/database-driven-play-apps)
+* [Building a Database-backed Play! application for Heroku/Cedar](/database-driven-play-apps)
 * [Play! Framework documentation and tutorials](http://www.playframework.org/documentation)

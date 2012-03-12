@@ -91,7 +91,7 @@
     <h2>Step 1. Setup your environment</h2>
     <ol>
         <li>Ensure <a href="http://unicase.blogspot.com/2011/01/egit-tutorial-for-beginners.html">EGit</a> is installed.</li>
-        <li>Ensure the <a href="http://www.eclipse.org/m2e/">Maven Eclipse Plugin</a> is installed.</li>
+        <li><a href="http://download.playframework.org/releases/play-1.2.4.zip">Download</a> and upzip the Play! framework.</li>
         <li>Create an SSH key:
             <ol>
                 <li>Go to <code>Window</code> <i class="icon-chevron-right"></i> <code>Preferences</code> <i class="icon-chevron-right"></i> <code>General</code> <i class="icon-chevron-right"></i> <code>Network Connections</code> <i class="icon-chevron-right"></i> <code>SSH2</code></li>
@@ -184,8 +184,18 @@
 
     <h2>Step 3. Configure the App</h2>
     <ol>
-        <li>Right-click the project root</li>
-        <li>Choose <code>Configure</code> <i class="icon-chevron-right"></i> <code>Convert to Maven Project</code> </li>
+        <li>Go to <code>Preferences</code> <i class="icon-chevron-right"></i> <code>External Tools</code> <i class="icon-chevron-right"></i> <code>External Tools Configuration</code></li>
+        <li>Double-click <code>Program</code></li>
+        <li>Enter the following values:
+            <ul>
+                <li>Name: <code>Play Eclipsify</code></li>
+                <li>Location: Path to the <code>play</code> executable (or <code>play.bat</code> on Windows) in the Play! directory unzipped above</li>
+                <li>Working Directory: <code>&#36;{project_loc}</code></li>
+                <li>Arguments: <code>eclipsify</code></li>
+            </ul>
+        </li>
+        <li>Click <code>Run</code></li>
+        <li>Select the project and choose <code>File</code> <i class="icon-chevron-right"></i> <code>Refresh</code></li>
     </ol>
 
     <h2>Step 4. Makes some changes to the app</h2>
@@ -255,7 +265,8 @@ public Time get(@PathParam("timezone") String timezone) {
     <h2>Step 1. Setup your environment</h2>
     <ol>
         <li>Install the <a href="http://toolbelt.heroku.com">Heroku Toolbelt</a>.</li>
-        <li>Install <a href="http://maven.apache.org/download.html">Maven</a>.</li>
+        <li><a href="http://download.playframework.org/releases/play-1.2.4.zip">Download</a> the Play! framework.</li>
+        <li>Unzip the framework and add the directory to your <code>PATH</code>.</li>
     </ol>
 
     <h2>Step 2. Login to Heroku</h2>
@@ -292,7 +303,7 @@ public Time get(@PathParam("timezone") String timezone) {
     </ol>
 
     <h2>Step 5. Make sure the app still compiles</h2>
-    <code>mvn clean package</code>
+    <code>play clean precompile</code>
 
     <h2>Step 6. Deploy your changes</h2>
     <ol>

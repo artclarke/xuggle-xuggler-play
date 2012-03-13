@@ -8,7 +8,7 @@ GET     /                                          Application.index
 # People
 GET        /people                                 People.index
 POST       /people                                 People.create
-GET        /people/{id}/delete                     People.delete
+DELETE     /people/{id}                            People.delete
 
 # Ignore favicon requests
 GET        /favicon.ico                            404

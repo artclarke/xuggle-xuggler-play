@@ -1,5 +1,22 @@
 #{extends 'main.html'/}
 
+<script type="text/javascript">
+    var deletePersonActionUrl = #{jsAction @People.delete(':id')/};
+
+    var deletePerson = function(personId) {
+        $.ajax({
+            'url': deletePersonActionUrl({'id': personId}),
+            'type': 'DELETE',
+            'success': function(data, textStatus, jqXHR) {
+                location.reload();
+            },
+            'error': function(jqXHR, textStatus, errorThrown) {
+                alert('Failed to delete record.');
+            }
+        })
+    }
+</script>
+
 <div class="row">
     <div class="span8 offset2">
         <div class="page-header">
@@ -26,7 +43,7 @@
                 <tr>
                     <td>${person.lastName}</td>
                     <td>${person.firstName}</td>
-                    <td><a href="people/${person.id}/delete">delete</a></td>
+                    <td><a href="#" onclick="deletePerson(${person.id});">Delete</a></td>
                 </tr>
             #{/list}
         </table>

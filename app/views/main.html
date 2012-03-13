@@ -1,16 +1,43 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html>
-    <head>
-        <title>#{get 'title' /}</title>
-        <meta charset="${_response_encoding}">
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
-        #{get 'moreStyles' /}
-        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
-        <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-        #{get 'moreScripts' /}
-    </head>
-    <body>
-        #{doLayout /}
-    </body>
+<head>
+    <meta charset="utf-8">
+    <title>Play! Template</title>
+
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!--
+      IMPORTANT:
+      This is Heroku specific styling. Remove to customize.
+    -->
+    <link href="http://heroku.github.com/template-app-bootstrap/heroku.css" rel="stylesheet">
+    <!-- /// -->
+
+    <!--
+      IMPORTANT:
+      To do the replacement {{app-name}} for the real name application
+    -->
+    <script src="http://heroku.github.com/template-app-bootstrap/heroku.js"></script>
+    <!-- /// -->
+
+</head>
+
+<body>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a href="/" class="brand">Play! Template</a>
+            <a href="/" class="brand" id="heroku">by <strong>heroku</strong></a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    #{doLayout /}
+</div>
+
+</body>
 </html>

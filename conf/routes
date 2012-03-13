@@ -5,6 +5,10 @@
 # Home page
 GET     /                                       Application.index
 
+# People
+GET        /people                                 People.index
+GET        /people/{id}/delete                     People.delete({id})
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

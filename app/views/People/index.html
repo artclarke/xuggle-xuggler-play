@@ -1,0 +1,23 @@
+#{extends 'main.html'/}
+
+*{#{if !people.isEmpty()}}*
+    <div class="row">
+        <h3>People</h3>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            #{list people, as: 'person'}
+                <tr>
+                    <td>${person.lastName}</td>
+                    <td>${person.firstName}</td>
+                    <td><a href="people/${person.id}/delete">delete</a></td>
+                </tr>
+            #{/list}
+        </table>
+    </div>
+*{#{/if}}*

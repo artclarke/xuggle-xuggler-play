@@ -201,12 +201,11 @@
 
     <h2>Step 4. Makes some changes to the app</h2>
     <ol>
-        <li>Open <code>app/views/People/index.html</code></li>
-        <li>Flip the order of the <code>firstName</code> and <code>lastName</code> form fields, like this:
-            <pre>
-&lt;label&gt;First Name &lt;input name=&quot;firstName&quot;/&gt;&lt;/label&gt;
-&lt;label&gt;Last Name &lt;input name=&quot;lastName&quot;/&gt;&lt;/label&gt;</pre>
+        <li>Open <code>app/controllers/People.java</code> and locate the <code>index()</code> method.</li>
+        <li>To sort the person records by last name, change
+            <code>Person.findAll()</code> to <code>Person.find("ORDER BY lastName").fetch()</code>
         </li>
+        <li>Save the file.</li>
     </ol>
 
     <h2>Step 5. Deploy to Heroku</h2>
@@ -275,7 +274,7 @@
             <pre>
 $ heroku login
 Enter your Heroku credentials.
-Email: naaman@heroku.com
+Email: playful@example.com
 Password:
 Could not find an existing public key.
 Would you like to generate one? [Yn] Y
@@ -288,12 +287,11 @@ Authentication successful.</pre>
 
     <h2>Step 4. Makes some changes to the app</h2>
     <ol>
-        <li>Open <code>app/views/People/index.html</code></li>
-        <li>Flip the order of the <code>firstName</code> and <code>lastName</code> form fields, like this:
-            <pre>
-&lt;label&gt;First Name &lt;input name=&quot;firstName&quot;/&gt;&lt;/label&gt;
-&lt;label&gt;Last Name &lt;input name=&quot;lastName&quot;/&gt;&lt;/label&gt;</pre>
+        <li>Open <code>app/controllers/People.java</code> and locate the <code>index()</code> method.</li>
+        <li>To sort the person records by last name, change
+            <code>Person.findAll()</code> to <code>Person.find("ORDER BY lastName").fetch()</code>
         </li>
+        <li>Save the file.</li>
     </ol>
 
     <h2>Step 5. Make sure the app still compiles</h2>

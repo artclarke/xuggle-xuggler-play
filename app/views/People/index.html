@@ -41,7 +41,7 @@
             #{list people, as: 'person'}
                 <tr>
                     <td>${person.fullName}</td>
-                    <td><a href="#" onclick="deletePerson(${person.id});">Delete</a></td>
+                    <td><button class="btn btn-danger btn-mini" onclick="deletePerson(${person.id});">Delete</button></td>
                 </tr>
             #{/list}
         </table>

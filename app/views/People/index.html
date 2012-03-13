@@ -1,15 +1,25 @@
 #{extends 'main.html'/}
 
-*{#{if !people.isEmpty()}}*
-    <div class="row">
+<div class="row">
+    <div class="span8 offset2">
+        <div class="page-header">
+            <h1>Simple CRUD Page</h1>
+        </div>
+        <form method="post" action="people" class="form-vertical">
+            <label>First Name <input name="firstName"/></label>
+            <label>Last Name  <input name="lastName"/></label>
+            <input type="submit" value="Add Person" class="btn"/>
+        </form>
+
+    #{if !people.isEmpty()}
         <h3>People</h3>
         <table class="table table-bordered table-striped">
             <thead>
-                <tr>
-                    <th>Last Name</th>
-                    <th>First Name</th>
-                    <th>&nbsp;</th>
-                </tr>
+            <tr>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>&nbsp;</th>
+            </tr>
             </thead>
             #{list people, as: 'person'}
                 <tr>
@@ -19,5 +29,6 @@
                 </tr>
             #{/list}
         </table>
+    #{/if}
     </div>
-*{#{/if}}*
+</div>

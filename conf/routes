@@ -3,17 +3,18 @@
 # ~~~~
 
 # Home page
-GET     /                                       Application.index
+GET     /                                          Application.index
 
 # People
 GET        /people                                 People.index
-GET        /people/{id}/delete                     People.delete({id})
+POST       /people                                 People.create
+GET        /people/{id}/delete                     People.delete
 
 # Ignore favicon requests
-GET     /favicon.ico                            404
+GET        /favicon.ico                            404
 
 # Map static resources from the /app/public folder to the /public path
-GET     /public/                                staticDir:public
+GET        /public/                                staticDir:public
 
 # Catch all
-*       /{controller}/{action}                  {controller}.{action}
+*           /{controller}/{action}                 {controller}.{action}

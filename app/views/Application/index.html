@@ -41,6 +41,19 @@
             -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
             box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
         }
+
+        .modal{
+            width:800px;
+            margin-left:-400px;
+            height:650px;
+            margin-top: -325px;
+        }
+
+        .modal .modal-body {
+            text-align: center;
+            max-height: 650px;
+        }
+
     </style>
     <!-- /// -->
     <script type="text/javascript">
@@ -184,6 +197,7 @@
 
     <h2>Step 3. Configure the App</h2>
     <ol>
+        <li>Select the imported project</li>
         <li>Go to <code>Preferences</code> <i class="icon-chevron-right"></i> <code>External Tools</code> <i class="icon-chevron-right"></i> <code>External Tools Configuration</code></li>
         <li>Double-click <code>Program</code></li>
         <li>Enter the following values:
@@ -193,6 +207,21 @@
                 <li>Working Directory: <code>&#36;{project_loc}</code></li>
                 <li>Arguments: <code>eclipsify</code></li>
             </ul>
+            <div class="modal hide" id="playEclipsifyModal">
+                <div class="modal-header">
+                    <a class="close" data-dismiss="modal">x</a>
+                    <h3>Play! Eclipsify External Tool Configuration</h3>
+                </div>
+                <div class="modal-body">
+                    <img src="https://s3.amazonaws.com/template-app-instructions-screenshots/play/play-eclipsify-ext-tool.png" alt="Play! Eclipsify External Tool Configuration" />
+                </div>
+            </div>
+            <span class="screenshot">
+              <a href="#playEclipsifyModal" data-toggle="modal">
+                  <img src="https://s3.amazonaws.com/template-app-instructions-screenshots/play/play-eclipsify-ext-tool.png" alt="Play! Eclipsify External Tool Configuration" width="100" />
+                  <i class="icon-zoom-in"></i>
+              </a>
+            </span>
         </li>
         <li>Click <code>Run</code></li>
         <li>Select the project and choose <code>File</code> <i class="icon-chevron-right"></i> <code>Refresh</code></li>

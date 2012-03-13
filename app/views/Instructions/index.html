@@ -194,14 +194,11 @@
 
     <h2>Step 4. Makes some changes to the app</h2>
     <ol>
-        <li>Open <code>src/main/java/com/example/services/TimeService.java</code></li>
-        <li>To add a new resource path that supports specific time zones (e.g. <code>GET /services/time/est</code> for the time in Eastern Standard Time), add this method:
-            <pre class="prettyprint once language-java">
-@GET
-@Path("/{timezone}")
-public Time get(@PathParam("timezone") String timezone) {
-    return new Time(TimeZone.getTimeZone(timezone.toUpperCase()));
-}</pre>
+        <li>Open <code>app/views/People/index.html</code></li>
+        <li>Flip the order of the <code>firstName</code> and <code>lastName</code> form fields, like this:
+            <pre>
+&lt;label&gt;First Name &lt;input name=&quot;firstName&quot;/&gt;&lt;/label&gt;
+&lt;label&gt;Last Name &lt;input name=&quot;lastName&quot;/&gt;&lt;/label&gt;</pre>
         </li>
     </ol>
 
@@ -284,15 +281,11 @@ Authentication successful.</pre>
 
     <h2>Step 4. Makes some changes to the app</h2>
     <ol>
-        <li>Open <code>src/main/java/com/example/services/TimeService.java</code> in your favorite editor.</li>
-        <li>To add a new resource path that supports specific time zones (e.g. <code>GET /services/time/est</code>
-            for the time in Eastern Standard Time), add this method:
-            <pre class="prettyprint once language-java">
-@GET
-@Path("/{timezone}")
-public Time get(@PathParam("timezone") String timezone) {
-    return new Time(TimeZone.getTimeZone(timezone.toUpperCase()));
-}</pre>
+        <li>Open <code>app/views/People/index.html</code></li>
+        <li>Flip the order of the <code>firstName</code> and <code>lastName</code> form fields, like this:
+            <pre>
+&lt;label&gt;First Name &lt;input name=&quot;firstName&quot;/&gt;&lt;/label&gt;
+&lt;label&gt;Last Name &lt;input name=&quot;lastName&quot;/&gt;&lt;/label&gt;</pre>
         </li>
     </ol>
 

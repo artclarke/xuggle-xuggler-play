@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-GET     /                                          Application.index
+GET     /                                          Instructions.index
 
 # People
 GET        /people                                 People.index

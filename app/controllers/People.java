@@ -13,6 +13,8 @@ public class People extends Controller {
     }
     
     public static void create(String firstName, String lastName) {
+        checkAuthenticity();
+
         Person person = new Person();
         person.firstName = firstName;
         person.lastName = lastName;

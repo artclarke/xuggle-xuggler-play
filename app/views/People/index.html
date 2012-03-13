@@ -5,11 +5,12 @@
         <div class="page-header">
             <h1>Simple CRUD Page</h1>
         </div>
-        <form method="post" action="people" class="form-vertical">
+        #{form @People.create(), class: "form-vertical"}
+        <form method="post" action="people" >
             <label>First Name <input name="firstName"/></label>
             <label>Last Name  <input name="lastName"/></label>
             <input type="submit" value="Add Person" class="btn"/>
-        </form>
+        #{/form}
 
     #{if !people.isEmpty()}
         <h3>People</h3>

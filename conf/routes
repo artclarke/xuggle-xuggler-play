@@ -3,12 +3,11 @@
 # ~~~~
 
 # Home page
-GET     /                                          Instructions.index
+GET     /                                          Xuggle.index
 
 # People
-GET        /people                                 People.index
-POST       /people                                 People.create
-DELETE     /people/{id}                            People.delete
+GET        /xuggle                                 Xuggle.index
+POST       /xuggle                                 Xuggle.query
 
 # Ignore favicon requests
 GET        /favicon.ico                            404

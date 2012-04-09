@@ -1,0 +1,33 @@
+#{extends 'main.html'/}
+
+<div class="row">
+    <div class="span8 offset2">
+        <div class="page-header">
+            <h1>Video File Meta Data Query Tool</h1>
+           
+        </div>
+        #{form @Xuggle.query(), class: "form-vertical"}
+        <form method="post" action="people" >
+            <label>URL <input name="url"/></label>
+            <input type="submit" value="Get Information" class="btn"/>
+        #{/form}
+
+    #{if !tags.isEmpty()}
+        <h3>Information</h3>
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Category</th>
+                <th>Message</th>
+            </tr>
+            </thead>
+            #{list tags, as: 'tag'}
+                <tr>
+                    <td>${tag.category}</td>
+                    <td>${tag.message}</td>
+                </tr>
+            #{/list}
+        </table>
+    #{/if}
+    </div>
+</div>

@@ -1,22 +1,21 @@
 package models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import java.util.Collection;
 
 import play.db.jpa.Model;
 
-@Entity
-public class Tag extends Model
+public class Tag 
 {
   String category;
-  @Column(length=2048)
   String message;
   
-  public static void create(String aCategory, String aMessage)
+  public static void create(
+      Collection<Tag> tags,
+      String aCategory, String aMessage)
   {
-    Tag t = new Tag();
+    final Tag t = new Tag();
     t.category = aCategory;
     t.message = aMessage;
-    t.create();
+    tags.add(t);
   }
 }
